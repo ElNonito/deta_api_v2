@@ -1,5 +1,6 @@
 from flask import Flask
-# from flask imoprt render-render
+import logging
+
 app = Flask(__name__)
 
 @app.route('/', methods=["GET"])
@@ -32,5 +33,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </button>
 """
     return pre + tag_manager + "Hello World" + button
+    
+   
+@app.route('/logger', methods=["GET"])
+def logger_page():
+    page = """
+    <script>
+    console.log('This is a front-end log');
+    </script>
+    
+
+    <script>
+    alert('Text is in a text box');
+    </script>
+    """
+
+    print('This is a back-end log')
+    return page + "This page logs stuff"
     
    
